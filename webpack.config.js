@@ -46,18 +46,9 @@ module.exports = {
       },
     ],
   },
-  performance: {
-    hints: false,
-  },
-  optimization: {
-    splitChunks: {
-      // include all types of chunks
-      chunks: 'all',
-    },
-  },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Vidvib',
+      title: 'Todo List',
       filename: 'index.html',
       template: 'src/index.html',
     }),
