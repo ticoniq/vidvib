@@ -10,14 +10,69 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #171723;
 }
 
 i {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
   padding: 0 40px;
-  max-width: 600px;
+  max-width: 1440px;
+  margin: auto;
+}
+
+.head {
+  background: rgba(105, 129, 248, 0.8);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+
+.navbar .navbar-ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar .navbar-ul .navbar-link {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600px;
+}
+
+.foot {
+  background-color: rgba(105, 129, 248, 0.8);
+}
+
+.foot .container {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+@media (max-width: 766px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100px;
+  }
+
+  .navbar .navbar-ul {
+    background: rgba(33, 68, 246, 0.5);
+    padding: 10px 20px;
+    border-radius: 10px 20px;
+  }
 }
