@@ -46,6 +46,15 @@ module.exports = {
       },
     ],
   },
+  performance: {
+    hints: false,
+  },
+  optimization: {
+    splitChunks: {
+      // include all types of chunks
+      chunks: 'all',
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Vidvib',
