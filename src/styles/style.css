@@ -20,12 +20,31 @@ a {
   text-decoration: none;
 }
 
+img {
+  width: 100%;
+}
+
+.like-icon {
+  width: 20px;
+  cursor: pointer;
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  background: rgba(33, 68, 246, 0.9);
+  border: none;
+}
+
 .container {
   padding: 0 40px;
   max-width: 1440px;
-  margin: auto;
+  margin: 0 auto;
 }
 
+/* header */
 .head {
   background: rgba(105, 129, 248, 0.8);
 }
@@ -49,6 +68,33 @@ a {
   font-weight: 600px;
 }
 
+.movies {
+  margin: 50px 0;
+}
+
+.movies .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.movies .card {
+  max-width: 400px;
+  margin: auto;
+}
+
+.movies .card h3 {
+  margin-block: 10px;
+}
+
+.movies .card .card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 20px;
+}
+
+/* Footer  */
 .foot {
   background-color: rgba(105, 129, 248, 0.8);
 }
@@ -74,5 +120,17 @@ a {
     background: rgba(33, 68, 246, 0.5);
     padding: 10px 20px;
     border-radius: 10px 20px;
+  }
+
+  .movies .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .foot .container {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    height: 100px;
   }
 }
