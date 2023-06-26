@@ -49,6 +49,19 @@ a {
   font-weight: 600px;
 }
 
+.foot {
+  background-color: rgba(105, 129, 248, 0.8);
+ 
+}
+
+.foot .container {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
 @media (max-width: 766px) {
   .navbar {
     display: flex;
