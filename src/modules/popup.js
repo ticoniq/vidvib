@@ -58,7 +58,7 @@ const displayCommentPop = async (movieid) => {
   });
 
   const addComment = document.querySelector('.commentForm');
-  addComment.addEventListener('click', async (e) =>{
+  addComment.addEventListener('submit', async (e) =>{
     e.preventDefault();
     const username = document.querySelector('.nameField').value;
     const comment = document.querySelector('.commentField').value ;
@@ -67,6 +67,7 @@ const displayCommentPop = async (movieid) => {
     }else {
       postComments(movieDetails.id, username, comment);
     }
+    addComment.reset();
   })
 
 };
