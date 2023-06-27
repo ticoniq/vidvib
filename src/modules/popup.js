@@ -1,20 +1,21 @@
 import closeImg from '../assets/close.png';
+
 const fetchMovie = async (movieid) => {
-    console.log(movieid);
-    const url = `https://api.tvmaze.com/shows/1/episodebynumber?season=1&number=${movieid}`;
-    const response = await fetch(url);
-    const movies = await response.json();
-    return movies;
+  console.log(movieid);
+  const url = `https://api.tvmaze.com/shows/1/episodebynumber?season=1&number=${movieid}`;
+  const response = await fetch(url);
+  const movies = await response.json();
+  return movies;
 };
 const popContainer = document.querySelector('.popContainer');
 const displayCommentPop = async (movieid) => {
-    const movieDetails = await fetchMovie(movieid);
-    const popup = document.createElement('div');
-    popup.classList.add('popup');
-    const img = document.createElement('img');
-    img.setAttribute('src', closeImg);
-    img.className = 'closeBtn';
-    popup.innerHTML = `
+  const movieDetails = await fetchMovie(movieid);
+  const popup = document.createElement('div');
+  popup.classList.add('popup');
+  const img = document.createElement('img');
+  img.setAttribute('src', closeImg);
+  img.className = 'closeBtn';
+  popup.innerHTML = `
     ${img.outerHTML}
     <img class="img" src="${movieDetails.image.original}" alt="${movieDetails.name}" />
   <h2 class="title">${movieDetails.name}</h2>
@@ -33,13 +34,13 @@ const displayCommentPop = async (movieid) => {
   </div>
   `;
 
-    popContainer.appendChild(popup);
-    const close = document.querySelector('.closeBtn');
-    close.addEventListener('click', () => {
-        document.body.style.overflow = 'auto';
-        popContainer.style.display = 'none';
-        window.location.reload();
-    })
-}
+  popContainer.appendChild(popup);
+  const close = document.querySelector('.closeBtn');
+  close.addEventListener('click', () => {
+    document.body.style.overflow = 'auto';
+    popContainer.style.display = 'none';
+    window.location.reload();
+  });
+};
 
-export { displayCommentPop };
+export default displayCommentPop;

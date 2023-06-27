@@ -119,7 +119,7 @@ button {
   max-width: 600px;
   margin: auto;
   z-index: 1;
-   overflow: auto; 
+  overflow: auto;
 }
 
 .popup {
@@ -130,8 +130,8 @@ button {
 .closeBtn {
   width: 20px;
   margin-bottom: 10px;
- position: relative;
- left: 97%;
+  position: relative;
+  left: 97%;
 }
 
 .addComment {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import likeMovie from './add-likes';
 import heart from '../assets/heart.png';
-import { displayCommentPop } from './popup.js';
+import displayCommentPop from './popup';
 
 const displayMovies = document.querySelector('.display-movies');
 
@@ -39,7 +39,6 @@ const displayList = async () => {
         await displayCommentPop(movieid);
         document.body.style.overflow = 'hidden';
         popContainer.style.display = 'block';
-
       });
     });
   } catch (error) {
