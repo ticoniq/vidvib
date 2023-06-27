@@ -2,7 +2,6 @@ import axios from 'axios';
 import closeImg from '../assets/close.png';
 import { getAppName } from './localstorage';
 
-
 const fetchMovie = async (movieid) => {
   console.log(movieid);
   const url = `https://api.tvmaze.com/shows/1/episodebynumber?season=1&number=${movieid}`;
@@ -12,12 +11,12 @@ const fetchMovie = async (movieid) => {
 };
 
 const postComments = async (id, username, comment) => {
-    const response = await axios.post(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${getAppName()}/comments`, {
-      item_id: id,
-      username: username,
-      comment: comment,
-    });
-    console.log('Comment added:', response.data);
+  const response = await axios.post(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${getAppName()}/comments`, {
+    item_id: id,
+    username,
+    comment,
+  });
+  console.log('Comment added:', response.data);
 };
 
 const popContainer = document.querySelector('.popContainer');
@@ -58,21 +57,17 @@ const displayCommentPop = async (movieid) => {
   });
 
   const addComment = document.querySelector('.commentForm');
-  addComment.addEventListener('submit', async (e) =>{
+  addComment.addEventListener('submit', async (e) => {
     e.preventDefault();
     const username = document.querySelector('.nameField').value;
-    const comment = document.querySelector('.commentField').value ;
-    if(username === '' && comment === ''){
-    console.log('empty');
-    }else {
+    const comment = document.querySelector('.commentField').value;
+    if (username === '' && comment === '') {
+      console.log('empty');
+    } else {
       postComments(movieDetails.id, username, comment);
     }
     addComment.reset();
-  })
-
+  });
 };
 
 export default displayCommentPop;
-
-
-
