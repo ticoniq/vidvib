@@ -57,17 +57,17 @@ const displayCommentPop = async (movieid) => {
   });
 
   const addComment = document.querySelector('.commentForm');
-  addComment.addEventListener('submit', (e) =>{
+  addComment.addEventListener('submit', (e) => {
     e.preventDefault();
     const username = document.querySelector('.nameField').value;
-    const comment = document.querySelector('.commentField').value ;
-    if(username.trim() === '' || comment.trim() === ''){
-    console.log('empty');
-    }else {
+    const comment = document.querySelector('.commentField').value;
+    if (username.trim() === '' || comment.trim() === '') {
+      console.log('empty');
+    } else {
       postComments(movieDetails.id, username, comment);
       addComment.reset();
     }
-  })
+  });
 };
 
 export default displayCommentPop;
