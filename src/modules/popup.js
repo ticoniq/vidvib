@@ -1,4 +1,7 @@
+import axios from 'axios';
 import closeImg from '../assets/close.png';
+import { getAppName } from './localstorage';
+
 
 const fetchMovie = async (movieid) => {
   console.log(movieid);
@@ -7,6 +10,16 @@ const fetchMovie = async (movieid) => {
   const movies = await response.json();
   return movies;
 };
+
+const postComments = async (id, username, comment) => {
+    const response = await axios.post(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${getAppName()}/comments`, {
+      item_id: id,
+      username: username,
+      comment: comment,
+    });
+    console.log('Comment added:', response.data);
+};
+
 const popContainer = document.querySelector('.popContainer');
 const displayCommentPop = async (movieid) => {
   const movieDetails = await fetchMovie(movieid);
@@ -30,7 +43,7 @@ const displayCommentPop = async (movieid) => {
         <form class="commentForm">
           <input type="text" class="nameField" placeholder="Your name" />
           <textarea class="commentField" placeholder="Your remarks" rows="5" cols="30"></textarea>
-          <button type="submit" class="addComment">add Comment</button>
+          <button type="submit" id="${movieDetails.id}" class="addComment">add Comment</button>
         </form>
       </div>
     </div>
@@ -43,6 +56,22 @@ const displayCommentPop = async (movieid) => {
     popContainer.style.display = 'none';
     window.location.reload();
   });
+
+  const addComment = document.querySelector('.commentForm');
+  addComment.addEventListener('click', async (e) =>{
+    e.preventDefault();
+    const username = document.querySelector('.nameField').value;
+    const comment = document.querySelector('.commentField').value ;
+    if(username === '' && comment === ''){
+    console.log('empty');
+    }else {
+      postComments(movieDetails.id, username, comment);
+    }
+  })
+
 };
 
 export default displayCommentPop;
+
+
+
