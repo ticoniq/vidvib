@@ -114,12 +114,17 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  background: red;
-  padding: 20px;
-  max-width: 600px;
-  margin: auto;
   z-index: 1;
+  padding: 60px 0;
   overflow: auto;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.pop {
+  max-width: 600px;
+  padding: 20px;
+  margin: 0 auto;
+  background: #fff;
 }
 
 .popup {
