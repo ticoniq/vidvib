@@ -16,22 +16,24 @@ const displayCommentPop = async (movieid) => {
   img.setAttribute('src', closeImg);
   img.className = 'closeBtn';
   popup.innerHTML = `
-    ${img.outerHTML}
-    <img class="img" src="${movieDetails.image.original}" alt="${movieDetails.name}" />
-  <h2 class="title">${movieDetails.name}</h2>
-  <p class="summary">${movieDetails.summary}</p>
-  <div class="commentDiv">
-    <h4>Comments</h4>
-    <p class="comments">2024/06/11: dummy comment</p>
-  </div>
-  <div class="formDiv">
-    <h2>Add a Comment</h2>
-    <form class="commentForm">
-      <input type="text" class="nameField" placeholder="Your name" />
-      <textarea class="commentField" placeholder="Your remarks" rows="5" cols="30"></textarea>
-      <button type="submit" class="addComment">add Comment</button>
-    </form>
-  </div>
+    <div class="pop">
+      ${img.outerHTML}
+      <img class="img" src="${movieDetails.image.original}" alt="${movieDetails.name}" />
+      <h2 class="title">${movieDetails.name}</h2>
+      <p class="summary">${movieDetails.summary}</p>
+      <div class="commentDiv">
+        <h4>Comments</h4>
+        <p class="comments">2024/06/11: dummy comment</p>
+      </div>
+      <div class="formDiv">
+        <h2>Add a Comment</h2>
+        <form class="commentForm">
+          <input type="text" class="nameField" placeholder="Your name" />
+          <textarea class="commentField" placeholder="Your remarks" rows="5" cols="30"></textarea>
+          <button type="submit" class="addComment">add Comment</button>
+        </form>
+      </div>
+    </div>
   `;
 
   popContainer.appendChild(popup);
