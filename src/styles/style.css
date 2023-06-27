@@ -107,6 +107,53 @@ button {
   color: white;
 }
 
+.popContainer {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: red;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  z-index: 1;
+  overflow: auto;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+}
+
+.closeBtn {
+  width: 20px;
+  margin-bottom: 10px;
+  position: relative;
+  left: 97%;
+}
+
+.addComment {
+  width: 200px;
+  height: 40px;
+  background-color: antiquewhite;
+  color: black;
+  margin-top: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  width: 200px;
+  height: 30px;
+  padding: 10px;
+  margin-block: 10px;
+}
+
 @media (max-width: 766px) {
   .navbar {
     display: flex;
