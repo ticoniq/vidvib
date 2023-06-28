@@ -2,9 +2,23 @@ import axios from 'axios';
 import likeMovie from './add-likes';
 import heart from '../assets/heart.png';
 import displayCommentPop from './popup';
+import fetchLikes from './display-likes';
 
 const displayMovies = document.querySelector('.display-movies');
 const movieCount = document.querySelector('.movie-count'); // Add a reference to the element displaying the count
+
+const count = async () => {
+  try {
+    const response = await axios.get('https://api.tvmaze.com/shows/1/episodes');
+    const result = response.data;
+    const movies = result.splice(0, 12);
+    movieCount.innerHTML = movies.length.toString();
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
+count();
 
 const displayList = async () => {
   try {
@@ -28,9 +42,15 @@ const displayList = async () => {
       `;
       displayMovies.appendChild(card);
 
+      const likeCount = card.querySelector('.like-count');
+      const likes = await fetchLikes(movie.id);
+      likeCount.textContent = `${likes}`;
+
       const likeIcon = card.querySelector('.like-icon');
       likeIcon.addEventListener('click', async () => {
         await likeMovie(movie.id);
+        const likes = await fetchLikes(movie.id);
+        likeCount.textContent = `${likes}`;
       });
 
       const commentBtn = card.querySelector('.commentBtn');
@@ -43,9 +63,6 @@ const displayList = async () => {
         popContainer.style.display = 'block';
       });
     });
-
-    // Display the total count of movies
-    movieCount.innerHTML = movies.length.toString();
   } catch (error) {
     console.error('Error:', error);
   }
