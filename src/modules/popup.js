@@ -1,7 +1,7 @@
 import axios from 'axios';
 import closeImg from '../assets/close.png';
 import getAppName from './localstorage';
-import commentCounter from './commentCount.js';
+import commentCounter from './commentCount';
 
 const fetchMovie = async (movieid) => {
   console.log(movieid);
@@ -47,18 +47,12 @@ const displayComments = async (id) => {
     const commentsContainer = document.querySelector('.commentDiv');
     commentsContainer.innerHTML = '';
 
-
-
-
     comments.forEach((comment) => {
       const newComment = document.createElement('p');
       newComment.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
       commentsContainer.appendChild(newComment);
     });
-
-
-  }
-  catch (error) {
+  } catch (error) {
     console.error(error);
   }
   commentCounter();
@@ -114,7 +108,6 @@ const displayCommentPop = async (movieid) => {
     }
   });
   displayComments(movieDetails.id);
-  
 };
 
 export default displayCommentPop;
