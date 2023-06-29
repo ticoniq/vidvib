@@ -10,6 +10,7 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background: #242424;
 }
 
 i {
@@ -30,12 +31,29 @@ img {
 }
 
 button {
-  padding: 10px;
-  border-radius: 5px;
+  padding: 10px 15px;
   font-size: 16px;
   color: #fff;
+  cursor: pointer;
   background: rgba(33, 68, 246, 0.9);
   border: none;
+  border-radius: 15px;
+}
+
+button:hover {
+  transform: scale(0.9);
+}
+
+.msg {
+  display: none;
+  position: fixed;
+  left: 70%;
+  width: 200px;
+  padding: 10px 10px;
+  border-radius: 15px;
+  text-align: center;
+  color: #fff;
+  z-index: 10;
 }
 
 .container {
@@ -80,11 +98,18 @@ button {
 
 .movies .card {
   max-width: 400px;
-  margin: auto;
+  background: #efefef;
+  padding: 10px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
 }
 
 .movies .card h3 {
   margin-block: 10px;
+}
+
+.movies img {
+  border-radius: 20px;
 }
 
 .movies .card .card-body {
@@ -117,7 +142,7 @@ button {
   z-index: 1;
   padding: 60px 0;
   overflow: auto;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(36, 36, 36, 0.9);
 }
 
 .pop {
@@ -125,11 +150,58 @@ button {
   padding: 20px;
   margin: 0 auto;
   background: #fff;
+  border-radius: 20px;
 }
 
 .popup {
   display: flex;
   flex-direction: column;
+}
+
+.comment-count {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.pop .title {
+  margin-block: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.pop .summary {
+  margin-block: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.commentDiv {
+  height: 200px;
+  overflow-y: auto;
+  margin-block: 20px;
+}
+
+.commentDiv p {
+  background: rgba(36, 36, 36, 0.9);
+  color: #fff;
+  padding: 10px 20px;
+  margin-block: 10px;
+  border-radius: 20px;
+}
+
+.nameField,
+.commentField {
+  width: 100%;
+  border-radius: 20px;
+  padding: 5px 15px;
+  color: #242424;
+  font-size: 14px;
+  border: 2px solid #242424e6;
+}
+
+.nameField::placeholder,
+.commentField::placeholder {
+  color: #242424;
 }
 
 .closeBtn {
@@ -140,11 +212,13 @@ button {
 }
 
 .addComment {
+  display: inline-block;
   width: 200px;
   height: 40px;
-  background-color: antiquewhite;
-  color: black;
+  color: #fff;
   margin-top: 10px;
+  background: rgba(36, 36, 36, 0.9);
+  border-radius: 20px;
 }
 
 form {
@@ -160,6 +234,10 @@ form input {
 }
 
 @media (max-width: 766px) {
+  .container {
+    padding: 0 10px;
+  }
+
   .navbar {
     display: flex;
     flex-direction: column;
@@ -176,6 +254,10 @@ form input {
 
   .movies .container {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .movies .card {
+    margin: auto;
   }
 
   .foot .container {
