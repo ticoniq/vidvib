@@ -13,6 +13,27 @@ body {
   background: #242424;
 }
 
+.heading {
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  margin-block: 20px;
+  animation: neon 1s ease infinite;
+}
+
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 10px #ef00e3a8, 0 0 20px #ef00e3a8, 0 0 20px #ef00e3a8, 0 0 20px #ef00e3a8, 0 0 2px #fed128, 2px 2px 2px #ddb00e;
+    color: #f5efcb;
+  }
+
+  50% {
+    text-shadow: 0 0 2px #800e0b, 0 0 5px #800e0b, 0 0 5px #800e0b, 0 0 5px #7f98c5, 0 0 2px #800e0b, 4px 4px 2px #40340a;
+    color: #e9e3e7;
+  }
+}
+
 i {
   cursor: pointer;
 }
