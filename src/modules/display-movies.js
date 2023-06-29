@@ -4,6 +4,7 @@ import heart from '../assets/heart.png';
 import displayCommentPop from './popup';
 import fetchLikes from './display-likes';
 import count from './movies-count';
+import errorMsg from './error-message';
 
 const displayMovies = document.querySelector('.display-movies');
 
@@ -53,7 +54,7 @@ const displayList = async () => {
       });
     });
   } catch (error) {
-    console.error('Error:', error);
+    errorMsg('Error', 'red');
   }
 };
 
