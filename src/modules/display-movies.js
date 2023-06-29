@@ -3,20 +3,9 @@ import likeMovie from './add-likes';
 import heart from '../assets/heart.png';
 import displayCommentPop from './popup';
 import fetchLikes from './display-likes';
+import count from './movies-count';
 
 const displayMovies = document.querySelector('.display-movies');
-const movieCount = document.querySelector('.movie-count'); // Add a reference to the element displaying the count
-
-const count = async () => {
-  try {
-    const response = await axios.get('https://api.tvmaze.com/shows/1/episodes');
-    const result = response.data;
-    const movies = result.splice(0, 12);
-    movieCount.innerHTML = movies.length.toString();
-  } catch (error) {
-    console.error('Error:', error);
-  }
-};
 
 count();
 
